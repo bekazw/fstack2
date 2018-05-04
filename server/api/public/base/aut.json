@@ -1,0 +1,14 @@
+{
+    "admin" :{
+        "pass" : "admin",
+        "role" : 0,
+        "inSystemIP" : "0",
+        "id" : "u0"
+    },
+    "user" : {
+        "pass" : "user",
+        "role" : 1,
+        "inSystemIP" : "0",
+        "id" : "u1"
+    }
+}
