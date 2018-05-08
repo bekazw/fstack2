@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
+import LogIn from '../../redux/actions';
+import { connect } from 'react-redux';
+
 class Auth extends Component {
     constructor( props) {
         super(props);
         this.state = {
             log : "",
             pass : ""
-        }     
+        }        
     }
-    xx = () => {       
+
+    xx = (onLogin) => {       
         let t = this;
         if (this.state.log.length>0) {
         fetch("http://localhost:1000/auth/"+this.state.log+"/"+this.state.pass+"")   
@@ -22,7 +26,9 @@ class Auth extends Component {
                   console.log('parsing failed', ex)
                 })    
             }
+           
       }      
+      
     render() {           
             return (            
                 <div id = "Auth">
@@ -41,4 +47,13 @@ class Auth extends Component {
     }
 }
 
-export default withRouter(Auth);
+const mapDispatchAction = dispatch => {
+    return {
+      onLogin : (id, ip, cook) => {
+        dispatch(LogIn(1, "10.10.10.10", "tempCookoe"))
+      }
+    }
+}
+
+
+export default connect(mapDispatchAction)(Auth);

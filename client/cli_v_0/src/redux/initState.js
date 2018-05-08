@@ -1,7 +1,8 @@
 let initState = {
     curId : 0,
     curIP : "",
-    curCook : ""
+    curCook : "",
+    curPage : 0
 }
 
 export default initState;

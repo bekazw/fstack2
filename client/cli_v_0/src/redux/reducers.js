@@ -6,10 +6,14 @@ const init = (state = initState, action) => {
             return {
                 curId : action.actId,
                 curIp : action.actIp,
-                curCook : action.actCook
+                curCook : action.actCook,
+                curPage : 1
             }
         default : 
             return state
     }
 }
+
+
+
 export default init;
