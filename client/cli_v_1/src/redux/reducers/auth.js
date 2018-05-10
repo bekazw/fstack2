@@ -1,8 +1,4 @@
-import { combineReducers } from 'redux';
-
 import authState from './authState';
-
-
 
 const authReducer = (state = authState, action) => {
     switch (action.type) {
@@ -12,15 +8,15 @@ const authReducer = (state = authState, action) => {
                 authID : action.authID,
                 authIP : action.authIP,
                 authCook : action.authCook 
-            }
+            }      
+        case "REDIRECT" :
+            return {
+                ...state,
+                curPage : action.targetPage
+            } 
         default :
             return state;
     }
 }
 
-const rootReducer = combineReducers({
-    authReducer
-});
-
-
-export default rootReducer;
+export default authReducer;

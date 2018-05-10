@@ -3,15 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
 
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
-import rootReducer from './redux/reducers';
+import authReducer from './redux/reducers/auth';
 
-const gStore = createStore(rootReducer);
+const storeReducer = combineReducers ({
+    authReducer
+})
+
+const gStore = createStore(authReducer);
+console.log(gStore.getState());
 
 ReactDOM.render(
     <Provider store = { gStore } >
-     <App />
+         <App />
     </Provider>,
      document.getElementById('root'));
 

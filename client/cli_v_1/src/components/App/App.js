@@ -1,14 +1,29 @@
 import React, { Component } from 'react';
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <p> auth </p>
-      </div>
-    );
+import { connect } from 'react-redux';
+
+import Auth from '../Auth/Auth';
+import Main from '../Main/Main';
+
+const Show = (pag) => {
+  switch (pag.pag) {
+    case "/auth" :
+      return <Auth />
+    case "/main" :
+      return <Main />
   }
 }
 
-export default App;
+const App = ({curPage}) => {
+  return (
+    <div className = "App" >    
+      <Show pag = {curPage} />
+    </div>
+  )
+}
+const mapStateToProps = (state) => ({    
+  curPage : state.curPage    
+})
+
+export default connect(mapStateToProps)(App);
