@@ -25,8 +25,7 @@ class Auth extends Component {
                 }).catch(function(ex) {
                   console.log('parsing failed', ex)
                 })    
-            }
-           
+            }           
       }      
       
     render() {           
