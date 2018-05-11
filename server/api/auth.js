@@ -15,9 +15,14 @@ app.use(function(req, res, next) {
   });
 
 app.get("/auth/:login/:pass", (req, res) => {    
+    console.log("get in");
+
     if((allowedBase[""+req.params.login] !== undefined) &&
-         (allowedBase[""+req.params.login]["pass"] ===  req.params.pass)) {        
-                res.send(heroes[""+allowedBase[""+req.params.pass]["id"]]);
+         (allowedBase[""+req.params.login]["pass"] ===  req.params.pass)) { 
+            let x1 = allowedBase[""+req.params.pass]["id"];             
+            heroes[x1.toString()]["tempCook"] = "temp1"; 
+            heroes[x1.toString()]["userIP"]  = req.ip.toString();
+            res.send(heroes[""+x1]);
     }
     else {
         res.send("404");
