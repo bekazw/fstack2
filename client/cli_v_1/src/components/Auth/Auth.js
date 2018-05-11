@@ -9,19 +9,22 @@ class Auth extends Component {
             login : "",
             pass : ""
         }
-        console.log(this.props)
+        let tryToLogIn = this.tryToLogIn.bind(this);
     }
     
-    tryToLogIn = () => {
-       /* fetch("http://localhost:1000/auth/"+this.state.log+"/"+this.state.pass+"")   
+    tryToLogIn = (el) => {        
+        fetch("http://localhost:1000/auth/"+this.state.login+"/"+this.state.pass+"")   
         .then(function(response) {
           return response.json()
         }).then(function(json) {
-          console.log(json);         
+            console.dir(json);
+          if (json !== 404) {  
+              el.props.onLogin("/main");             
+            }
         }).catch(function(ex) {
           console.log('parsing failed', ex)
-        }) 
-       */ this.props.onLogin("/main");
+        })      
+        
     }
 
     valueUpdate = (e, who) => {
@@ -48,7 +51,7 @@ class Auth extends Component {
                     <input 
                         type = "password"
                         onChange = {e=>this.valueUpdate(e,"p")}/>
-                    <button onClick={this.tryToLogIn}>LogIn</button>
+                    <button onClick={() => {this.tryToLogIn(this)}}>LogIn</button>
                 </div>
             )
         }

@@ -3,12 +3,14 @@
         "pass" : "admin",
         "role" : 0,
         "inSystemIP" : "0",
-        "id" : "u0"
+        "id" : "u0",
+        "tempCook" : ""
     },
     "user" : {
         "pass" : "user",
         "role" : 1,
         "inSystemIP" : "0",
-        "id" : "u1"
+        "id" : "u1",
+        "tempCook" : ""
     }
 }
